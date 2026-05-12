@@ -57,7 +57,7 @@ body {
 .navbar-text { line-height: 1.2; }
 .navbar-text-main { font-size: 18px; font-weight: 800; color: var(--blue); letter-spacing: -.3px; }
 .navbar-text-sub { font-size: 10px; font-weight: 400; color: var(--text-muted); }
-.navbar-links { display: flex; gap: 4px; }
+.navbar-links { display: flex; gap: 4px; }@media(max-width:768px) { .navbar-links { display: none; } }
 .navbar-link {
   font-size: 13px; font-weight: 500; color: var(--text-mid);
   padding: 6px 14px; border-radius: 8px; text-decoration: none;
@@ -250,8 +250,11 @@ tr:not(.our-row):hover td { background: var(--gray-bg); transition: background .
   border: 1px solid var(--gray-border); border-radius: 12px; overflow: hidden;
   background: var(--white);
 }
-.ss-card-header {
-  display: flex; align-items: center; gap: 10px;
+@media(max-width:768px) {
+    nav { padding: 0 16px; height: 56px; }
+    .navbar-text-main { font-size: 16px; }
+    .hero { padding: 28px 16px 24px; }
+    .hero-inner { grid-template-columns: 1fr; }display: flex; align-items: center; gap: 10px;
   padding: 10px 16px; background: var(--gray-bg);
   border-bottom: 1px solid var(--gray-border);
 }
@@ -405,11 +408,11 @@ footer {
   <div style="padding:24px">
     <div class="charts-grid">
       <div class="chart-card">
-        <div class="chart-lbl">الزيارات العضوية مقارنةً</div>
+        <div class="chart-lbl">مقارنة الزيارات العضوية</div>
         <div style="position:relative;height:220px;direction:ltr"><canvas id="ch1" role="img" aria-label="مقارنة الزيارات"></canvas></div>
       </div>
       <div class="chart-card">
-        <div class="chart-lbl">الباك لينك مقارنةً</div>
+        <div class="chart-lbl">مقارنة الباك لينك</div>
         <div style="position:relative;height:220px;direction:ltr"><canvas id="ch2" role="img" aria-label="مقارنة الباك لينك"></canvas></div>
       </div>
     </div>
@@ -494,7 +497,7 @@ footer {
   <div class="sec-head">
     <div>
       <div class="sec-title"><span class="sec-title-dot"></span>أهم كلمات موقع المبسط الحالية</div>
-      <div class="sec-sub">مرتبة حسب عدد الظهورات <span style="direction:ltr;unicode-bidi:embed;display:inline-block">(Impressions)</span> · Google Search Console</div>
+      <div class="sec-sub">مرتبة حسب عدد الظهور <span style="direction:ltr;unicode-bidi:embed;display:inline-block">(Impressions)</span> · Google Search Console</div>
     </div>
     <span class="sec-badge">Google Search Console</span>
   </div>
@@ -665,7 +668,7 @@ new Chart(document.getElementById('ch1'),{
   options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:tc,font,maxRotation:28},grid:{color:gc}},y:{ticks:{color:tc,font,callback:v=>v>=1000?(v/1000).toFixed(1)+'K':v},grid:{color:gc}}}}
 });
 new Chart(document.getElementById('ch2'),{
-  type:'bar',
+  type:'bar',h
   data:{
     labels:['mouarid.com','mawadsa.com','almabsat.com','masheedgate.com','masdaronline.com','mbm-sa.com'],
     datasets:[{data:[52,168,284,497,710,853],backgroundColor:['#8A9BB4','#8A9BB4','#2D4A7A','#D4A017','#D4A017','#8A9BB4'],borderRadius:4,borderSkipped:false}]
